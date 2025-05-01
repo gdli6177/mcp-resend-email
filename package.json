@@ -1,6 +1,6 @@
 {
   "name": "mcp-resend-email",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "MCP Server for sending emails using Resend API",
   "main": "src/server.js",
   "type": "module",
@@ -17,7 +17,7 @@
     "resend",
     "email"
   ],
-  "author": "",
+  "author": "gdli <gtq6177@outlook.com>",
   "license": "MIT",
   "dependencies": {
     "fastmcp": "^1.23.2",
@@ -27,5 +27,12 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "bin": {
+    "mcp-resend-email": "./bin/mcp-resend-email.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdli6177/mcp-resend-email.git"
   }
 }

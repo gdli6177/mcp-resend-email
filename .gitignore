@@ -38,3 +38,6 @@ coverage/
 *.swp
 *.swo
 .DS_Store
+
+# 不提交doc目录
+doc/

@@ -1,5 +1,7 @@
 # MCP Resend Email
 
+[English Version](./README.en.md)
+
 这是一个基于Resend API的MCP Server，提供便捷的邮件发送功能。可用于客服回复、营销邮件、通知邮件等场景。
 
 ## 功能特点
@@ -11,93 +13,29 @@
 - 使用预定义模板发送营销邮件
 - 使用预定义模板发送欢迎邮件
 
-## 安装
-
-```bash
-npm install
-```
-
-## 配置
-
-### 环境变量方式
-
-创建`.env`文件并设置以下环境变量：
-
-```
-RESEND_API_KEY=your_resend_api_key
-PORT=3001
-```
-
-### 命令行参数方式
-
-也可以通过命令行参数传递 API 密钥，这在 stdio 模式下特别有用：
-
-```bash
-node src/server.js --api-key=your_resend_api_key
-```
-
 ## 使用方法
 
-### 启动服务器（stdio模式）
+### 通过 npx 使用
+
+你可以无需全局安装，直接通过 npx 启动 MCP Server：
 
 ```bash
-npm start
+npx mcp-resend-email --api-key=你的API密钥
 ```
 
-或者使用命令行参数传递 API 密钥：
-
-```bash
-npm run start:with-key
-```
-
-记得将 `YOUR_API_KEY` 替换为你的实际 API 密钥。
-
-开发模式：
-
-```bash
-npm run dev
-```
-
-### 启动服务器（SSE模式）
-
-```bash
-pnpm run start:http
-```
-
-或者开发模式：
-
-```bash
-pnpm run dev:http
-```
-
-### 自定义端口
-
-```bash
-PORT=8080 pnpm run start:http
-```
-
-## 配置Cursor连接到MCP服务器
-
-在项目目录下的`.cursor/mcp.json`或全局的`~/.cursor/mcp.json`中添加以下配置：
+如果你在 Windsurf 或 mcp client 的配置中使用，可以这样写：
 
 ```json
 {
-  "mcpServers": {
-    "resend-email-stdio": {
-      "command": "npm",
-      "args": [
-        "start"
-      ],
-      "env": {
-        "NODE_ENV": "development"
-      }
-    },
-    "resend-email-sse": {
-      "url": "http://localhost:3001/sse"
-    }
-  }
+  "name": "mcp-resend-email",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["mcp-resend-email", "--api-key=你的API密钥"],
+  "cwd": "."
 }
 ```
+
+这样可以自动拉取最新版，无需本地安装。
 
 ## 配置Windsurf连接到MCP服务器
 
@@ -111,9 +49,9 @@ PORT=8080 pnpm run start:http
     {
       "name": "mcp-resend-email",
       "transport": "stdio",
-      "command": "node",
-      "args": ["/完整路径/mcp-resend-email/src/server.js", "--api-key=your_resend_api_key"],
-      "cwd": "/完整路径/mcp-resend-email"
+      "command": "npx",
+      "args": ["mcp-resend-email", "--api-key=你的API密钥"],
+      "cwd": "."
     }
   ]
 }
@@ -228,6 +166,9 @@ send_welcome_email
 - `subject`: 邮件主题
 - `firstName`: 收件人名字
 - `product`: 产品名称
+- `welcomeMessage`: 欢迎消息
+- `callToActionUrl`: 行动号召链接
+- `callToActionText`: 行动号召文本
 
 ## 许可证
 
