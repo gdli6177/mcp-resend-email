@@ -46,15 +46,12 @@ In Windsurf configuration file, add:
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
-      "transport": "stdio",
+  "mcpServers": {
+    "mcp-resend-email": {
       "command": "npx",
-      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"],
-      "cwd": "."
+      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"]
     }
-  ]
+  }
 }
 ```
 
@@ -139,15 +136,12 @@ Add to Windsurf configuration:
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
-      "transport": "stdio",
+  "mcpServers": {
+    "mcp-resend-email": {
       "command": "npx",
-      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"],
-      "cwd": "."
+      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"]
     }
-  ]
+  }
 }
 ```
 
@@ -157,13 +151,12 @@ Add to Windsurf configuration:
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
+  "mcpServers": {
+    "mcp-resend-email": {
       "transport": "sse",
       "url": "http://localhost:3001/sse"
     }
-  ]
+  }
 }
 ```
 
@@ -268,6 +261,9 @@ Parameters:
 
 **Q: How do I upgrade to the latest version?**  
 A: Just run with npx again. npx will always fetch the latest version automatically.
+
+**Q: How do I get a Resend API Key?**  
+A: You can obtain a Resend API Key by signing up at [Resend's website](https://resend.com). After registration, navigate to the API Keys section in your dashboard to create a new API key. For more information, visit [Resend's documentation](https://resend.com/docs/api-keys/introduction).
 
 ## Contributing
 

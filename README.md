@@ -23,15 +23,12 @@
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
-      "transport": "stdio",
+  "mcpServers": {
+    "mcp-resend-email": {
       "command": "npx",
-      "args": ["mcp-resend-email", "--api-key=你的API密钥"],
-      "cwd": "."
+      "args": ["mcp-resend-email", "--api-key=你的API密钥"]
     }
-  ]
+  }
 }
 ```
 
@@ -78,15 +75,12 @@
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
-      "transport": "stdio",
+  "mcpServers": {
+    "mcp-resend-email": {
       "command": "npx",
-      "args": ["mcp-resend-email", "--api-key=你的API密钥"],
-      "cwd": "."
+      "args": ["mcp-resend-email", "--api-key=你的API密钥"]
     }
-  ]
+  }
 }
 ```
 
@@ -96,13 +90,12 @@
 
 ```json
 {
-  "mcpServers": [
-    {
-      "name": "mcp-resend-email",
+  "mcpServers": {
+    "mcp-resend-email": {
       "transport": "sse",
       "url": "http://localhost:3001/sse"
     }
-  ]
+  }
 }
 ```
 
@@ -202,6 +195,14 @@ send_welcome_email
 - `welcomeMessage`: 欢迎消息
 - `callToActionUrl`: 行动号召链接
 - `callToActionText`: 行动号召文本
+
+## 常见问题
+
+**问：如何升级到最新版本？**  
+答：只需再次使用 npx 运行即可。npx 会自动获取最新版本。
+
+**问：如何获取 Resend API Key？**  
+答：您可以通过在 [Resend 官网](https://resend.com) 注册账号来获取 Resend API Key。注册后，在您的控制面板中导航到 API Keys 部分创建新的 API 密钥。更多信息，请访问 [Resend 文档](https://resend.com/docs/api-keys/introduction)。
 
 ## 许可证
 
