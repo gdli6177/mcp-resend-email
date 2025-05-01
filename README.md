@@ -15,23 +15,56 @@
 
 ## 使用方法
 
-### 通过 npx 使用
+### 在各种 MCP Client 中使用
 
-你可以无需全局安装，直接通过 npx 启动 MCP Server：
+#### Windsurf 配置
 
-```bash
-npx mcp-resend-email --api-key=你的API密钥
-```
-
-如果你在 Windsurf 或 mcp client 的配置中使用，可以这样写：
+在 Windsurf 配置文件中添加：
 
 ```json
 {
-  "name": "mcp-resend-email",
-  "transport": "stdio",
-  "command": "npx",
-  "args": ["mcp-resend-email", "--api-key=你的API密钥"],
-  "cwd": "."
+  "mcpServers": [
+    {
+      "name": "mcp-resend-email",
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["mcp-resend-email", "--api-key=你的API密钥"],
+      "cwd": "."
+    }
+  ]
+}
+```
+
+#### Cursor 配置
+
+在项目目录下的 `.cursor/mcp.json` 或全局的 `~/.cursor/mcp.json` 中添加：
+
+```json
+{
+  "mcpServers": {
+    "mcp-resend-email": {
+      "command": "npx",
+      "args": ["mcp-resend-email", "--api-key=你的API密钥"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
+```
+
+#### Claude 配置
+
+在 Claude 的 MCP 配置中添加：
+
+```json
+{
+  "servers": [
+    {
+      "name": "mcp-resend-email",
+      "command": "npx mcp-resend-email --api-key=你的API密钥"
+    }
+  ]
 }
 ```
 

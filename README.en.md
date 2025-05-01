@@ -38,6 +38,61 @@ node src/server.js --api-key=your_resend_api_key
 
 ## Usage
 
+### Using with Various MCP Clients
+
+#### Windsurf Configuration
+
+In Windsurf configuration file, add:
+
+```json
+{
+  "mcpServers": [
+    {
+      "name": "mcp-resend-email",
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"],
+      "cwd": "."
+    }
+  ]
+}
+```
+
+#### Cursor Configuration
+
+In your project's `.cursor/mcp.json` or global `~/.cursor/mcp.json` file, add:
+
+```json
+{
+  "mcpServers": {
+    "mcp-resend-email": {
+      "command": "npx",
+      "args": ["mcp-resend-email", "--api-key=your_resend_api_key"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
+```
+
+#### Claude Configuration
+
+In Claude's MCP configuration, add:
+
+```json
+{
+  "servers": [
+    {
+      "name": "mcp-resend-email",
+      "command": "npx mcp-resend-email --api-key=your_resend_api_key"
+    }
+  ]
+}
+```
+
+This will always use the latest published version without local installation.
+
 ### Start the Server (stdio mode)
 
 ```bash
@@ -75,28 +130,6 @@ npm run dev:http
 ```bash
 PORT=8080 npm run start:http
 ```
-
-## Using with npx
-
-You can start the MCP Server directly with npx, no global installation required:
-
-```bash
-npx mcp-resend-email --api-key=your_resend_api_key
-```
-
-If you want to use it in Windsurf or mcp client configuration, you can write:
-
-```json
-{
-  "name": "mcp-resend-email",
-  "transport": "stdio",
-  "command": "npx",
-  "args": ["mcp-resend-email", "--api-key=your_resend_api_key"],
-  "cwd": "."
-}
-```
-
-This will always use the latest published version without local installation.
 
 ## Configure Windsurf to Connect to the MCP Server
 
@@ -235,9 +268,6 @@ Parameters:
 
 **Q: How do I upgrade to the latest version?**  
 A: Just run with npx again. npx will always fetch the latest version automatically.
-
-**Q: How do I view logs or debug issues?**  
-A: Logs will be printed to the terminal. For more verbose logs, set the environment variable `NODE_ENV=development`.
 
 ## Contributing
 
