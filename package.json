@@ -1,0 +1,31 @@
+{
+  "name": "mcp-resend-email",
+  "version": "1.0.0",
+  "description": "MCP Server for sending emails using Resend API",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "start:http": "node src/server.js --transport=http",
+    "dev:http": "nodemon src/server.js --transport=http",
+    "start:with-key": "node src/server.js --api-key=YOUR_API_KEY",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "resend",
+    "email"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fastmcp": "^1.23.2",
+    "resend": "^2.0.0",
+    "dotenv": "^16.3.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
